@@ -16,7 +16,7 @@ class Mouse:
 
     def click_and_drag(self, from_local, to_local):
         self.set_position(from_local)
-        MouseController.press(Button.left)
+        mouse.press(Button.left)
         time.sleep(0.5)
         self.set_position(to_local)
         mouse.release(Button.left)

@@ -48,9 +48,9 @@ class App():
         gamewindow.check_lifering()
 
     def default_action(self):
+        gamewindow.drop_runes()
         hotkeys.eat()
         hotkeys.rotate_char()
-        gamewindow.drop_runes()
 
 
 app = App()

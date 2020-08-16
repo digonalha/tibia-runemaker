@@ -5,7 +5,7 @@ import os
 
 
 class ImageFind():
-    def search(self, image, precision=0.95):
+    def search(self, image, precision=0.93):
         im = pyautogui.screenshot()
 
         img_path = '{}\images\{}'.format(os.path.abspath(os.getcwd()), image)
@@ -32,9 +32,11 @@ class ImageFind():
     def search_count(self, image, precision=0.9):
         img_rgb = pyautogui.screenshot()
 
+        img_path = '{}\images\{}'.format(os.path.abspath(os.getcwd()), image)
+
         img_rgb = numpy.array(img_rgb)
         img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)
-        template = cv2.imread(image, 0)
+        template = cv2.imread(img_path, 0)
 
         if (template is None):
             return 0
