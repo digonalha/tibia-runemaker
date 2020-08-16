@@ -15,6 +15,8 @@ hotkeys = Hotkeys()
 class App():
     def runemaker(self):
         try:
+            print(
+                'starting runemaker by digonalha. https://github.com/digonalha/tibia-runemaker')
             x = 0
             login.start_login()
 
@@ -49,8 +51,8 @@ class App():
 
     def default_action(self):
         gamewindow.drop_runes()
-        hotkeys.eat()
         hotkeys.rotate_char()
+        gamewindow.eat()
 
 
 app = App()

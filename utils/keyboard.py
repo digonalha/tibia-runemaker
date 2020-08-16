@@ -6,9 +6,9 @@ kbc = Controller()
 
 class Keyboard:
     def press_key(self, key):
-        time.sleep(0.219)
+        time.sleep(0.123)
         kbc.press(key)
-        time.sleep(0.231)
+        time.sleep(0.124)
         kbc.release(key)
 
     def press_esc(self, qtd=1):

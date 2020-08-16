@@ -119,3 +119,8 @@ class GameWindow:
     def check_avalanche(self):
         if (tools.is_tibia_focused()):
             mouse.locate_and_click('htkavalanche.png')
+
+    def eat(self):
+        has_food = image_find.search('food.png')
+        if (has_food):
+            mouse.click_on_position(has_food, right=False)

@@ -7,15 +7,13 @@ kbc = Controller()
 keyboard = Keyboard()
 tools = Tools()
 
-class Hotkeys():
-    def eat(self):
-        if (tools.is_tibia_focused()):
-            keyboard.press_key(Key.f8)
 
+class Hotkeys():
     def rotate_char(self):
         with kbc.pressed(Key.ctrl):
             keyboard.press_key(Key.up)
             keyboard.press_key(Key.right)
+            keyboard.press_key(Key.down)
 
     def send_msg(self, msg=str):
         keyboard.type(msg)

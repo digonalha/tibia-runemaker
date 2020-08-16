@@ -46,6 +46,7 @@ class Login:
         gamewindow.set_chat_off()
 
         if (gamewindow.check_offline()):
+            print('trying to login on character: {}'.format(character_name))
             keyboard.press_esc(3)
             time.sleep(3)
             keyboard.type(password)
