@@ -1,3 +1,4 @@
 tibia runemaker bot. made with python
 
-* Necessário utilizar gráficos no modo 'SOFTWARE' para conseguir tirar prints da tela na versao Windows
+1. to work, set your tibia graphic engine to 'software'
+2. 
