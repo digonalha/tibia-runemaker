@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
+import time
+
 from utils.login import Login
 from utils.tools import Tools
 from utils.gamewindow import GameWindow
 from utils.hotkeys import Hotkeys
-import time
+
 
 tools = Tools()
 gamewindow = GameWindow()
@@ -16,8 +18,9 @@ class App():
     def runemaker(self):
         try:
             print(
-                'starting runemaker by digonalha. https://github.com/digonalha/tibia-runemaker')
+                'starting runemaker. source code: https://github.com/digonalha/tibia-runemaker')
             x = 0
+            tools.open_tibia_if_closed()
             login.start_login()
 
             gamewindow.set_chat_off()

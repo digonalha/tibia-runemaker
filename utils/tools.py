@@ -3,8 +3,15 @@ import psutil
 import os
 import subprocess
 import re
+import platform
+import numpy
+import pygetwindow as gw
+from dotenv import load_dotenv
+load_dotenv()
 
-PROCNAME = "client"
+PROCNAME = 'client.exe'
+client_path = os.getenv('CLIENT_PATH')
+character_name = os.getenv('CHARACTER_NAME')
 
 
 class Tools:
@@ -19,30 +26,34 @@ class Tools:
             return False
 
     def check_is_opened(self):
-        proc_opened = False
-
         for proc in psutil.process_iter():
             if proc.name() == PROCNAME:
-                proc_opened = True
-                break
-
-        return proc_opened
+                return True
+        return False
 
     def is_tibia_focused(self):
-        return True
-        # TODO: aprender a manipular janela do windows. ver nicmd http://www.nirsoft.net/utils/nircmd.html
-        # search = "Tibia"
-        # subprocess.Popen("wmctrl -a " + search, shell=True)
-
-        # #if (nobody_onscreen()):
-        # cmd = "wmctrl -lp | grep $(xprop -root | grep _NET_ACTIVE_WINDOW | head -1 | \\awk '{print $5}' | sed 's/,//' | sed 's/^0x/0x0/')"
-        # result = str(subprocess.check_output(cmd, shell=True))
-
-        # if re.search(search, result):
-        #     return True
+        if (platform.system() == 'Windows'):
+            win = gw.getWindowsWithTitle('Tibia')
+            if (win):
+                win[0].activate()
+                return True
+            else:
+                return False
         # else:
-        #     return False
+            # TODO: aprender a manipular janela do windows. ver nicmd http://www.nirsoft.net/utils/nircmd.html
+            # search = "Tibia"
+            # subprocess.Popen("wmctrl -a " + search, shell=True)
+
+            # #if (nobody_onscreen()):
+            # cmd = "wmctrl -lp | grep $(xprop -root | grep _NET_ACTIVE_WINDOW | head -1 | \\awk '{print $5}' | sed 's/,//' | sed 's/^0x/0x0/')"
+            # result = str(subprocess.check_output(cmd, shell=True))
+
+            # if re.search(search, result):
+            #     return True
+            # else:
+            #     return False
 
     def open_tibia_if_closed(self):
         if (not self.check_is_opened()):
-            os.popen("/home/digo/Documents/Tibia/Tibia").read()
+            print('- opening client.')
+            os.startfile(client_path)

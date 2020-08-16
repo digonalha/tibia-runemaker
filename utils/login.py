@@ -5,7 +5,6 @@ import hmac
 import hashlib
 import time
 from dotenv import load_dotenv
-
 from .tools import Tools
 from .gamewindow import GameWindow
 from .keyboard import Keyboard
@@ -46,7 +45,7 @@ class Login:
         gamewindow.set_chat_off()
 
         if (gamewindow.check_offline()):
-            print('trying to login on character: {}'.format(character_name))
+            print('- trying to login on character: {}'.format(character_name))
             keyboard.press_esc(3)
             time.sleep(3)
             keyboard.type(password)
@@ -61,7 +60,6 @@ class Login:
             keyboard.press_enter()
 
             time.sleep(5)
-            print(character_name)
             keyboard.type(character_name)
             time.sleep(1)
             keyboard.press_enter()

@@ -26,7 +26,7 @@ class GameWindow:
         tools.is_tibia_focused()
 
         for i in range(0, 10):
-            position = image_find.search('btn_close.png')
+            position = image_find.search('btn_close.png', precision=0.99)
             if (position):
                 mouse.click_on_position(position, right=False)
             else:
@@ -66,7 +66,8 @@ class GameWindow:
         if (image_find.search('acabou_food.png')):
             self.buy_food()
         if (image_find.search('acabou_runes.png')):
-            self.buy_blank_runes()
+            self.pick_blank_runes()
+            # self.buy_blank_runes()
 
     def drop_runes(self):
         tot = image_find.search_count('rune_to_drop.png')
@@ -76,8 +77,17 @@ class GameWindow:
             bp_rune_position = image_find.search('rune_to_drop.png')
             if (bp_rune_position and to_local):
                 mouse.click_and_drag(bp_rune_position, to_local)
+                keyboard.press_enter()
             else:
                 break
+
+    def pick_blank_runes(self):
+        blank_rune_position = image_find.search('blank_rune_spot.png')
+        to_local = image_find.search('main_bp.png')
+
+        if (blank_rune_position and to_local):
+            mouse.click_and_drag(blank_rune_position, to_local)
+            keyboard.press_enter()
 
     def check_offline(self):
         main_screen = image_find.search('main_screen.png')
@@ -93,7 +103,7 @@ class GameWindow:
             boh_equipada = image_find.search('boh.png')
             descalco = image_find.search('descalco.png')
             sem_soft_nova = image_find.search('nsb.png')
-            worn_softboots = image_find.search('wsb.png')
+            worn_softboots = image_find.search('wsb.png', precision=1)
 
             if ((worn_softboots or boh_equipada or descalco) and (sem_soft_nova is None)):
                 # hotkey da soft boots
