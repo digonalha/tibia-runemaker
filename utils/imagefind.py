@@ -10,8 +10,7 @@ class ImageFind():
 
         img_path = '{}\images\{}'.format(os.path.abspath(os.getcwd()), image)
         # im.save(img_path)
-
-        # im.save('testarea.png') useful for debugging purposes, this will save the captured region as "testarea.png"
+        
         img_rgb = numpy.array(im)
         img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)
         template = cv2.imread(img_path, 0)
