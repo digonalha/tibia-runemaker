@@ -12,13 +12,18 @@ tools = Tools()
 gamewindow = GameWindow()
 login = Login()
 hotkeys = Hotkeys()
+make_arrow = False
 
 
 class App():
     def runemaker(self):
         try:
             print(
-                'starting runemaker. source code: https://github.com/digonalha/tibia-runemaker')
+                'starting runemaker.\nsource code: https://github.com/digonalha/tibia-runemaker\n')
+            make_arrow = input(
+                '1. Make arrows\n2. Make runes\n\nSelect: ') == '1'
+
+            print(make_arrow)
             x = 0
             tools.open_tibia_if_closed()
             login.start_login()
@@ -33,7 +38,7 @@ class App():
             while (True):
                 gamewindow.set_chat_off()
                 if (tools.is_time_between()):
-                    gamewindow.check_avalanche()
+                    self.cast_spell()
 
                     if (x % 4 == 0):
                         login.start_login()
@@ -46,6 +51,12 @@ class App():
                     time.sleep(5)
         except:
             raise
+
+    def cast_spell(self):
+        if (make_arrow):
+            gamewindow.check_diamond_arrow()
+        else:
+            gamewindow.check_avalanche()
 
     def check_supplies(self):
         gamewindow.check_food_and_blank_runes()
