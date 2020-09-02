@@ -18,14 +18,11 @@ hotkeys = Hotkeys()
 class App():
     def runemaker(self):
         try:
-            os.system('cls' if os.name == 'nt' else 'clear')
-            print(
-                'starting runemaker.\nsource code: https://github.com/digonalha/tibia-runemaker\n')
-            make_arrow = input(
-                '1. Make arrows\n2. Make runes\n\nSelect: ') == '1'
+            make_arrow = self.print_cabecalho()
+            # tools.set_tibia_renderer()
+            tools.open_tibia_if_closed()
 
             x = 0
-            tools.open_tibia_if_closed()
             login.start_login()
 
             gamewindow.set_chat_off()
@@ -51,6 +48,15 @@ class App():
                     time.sleep(5)
         except:
             raise
+
+    def print_cabecalho(self):
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(
+            'iniciando runemaker.\ncodigo-fonte: https://github.com/digonalha/tibia-runemaker\n')
+        make_arrow = input(
+            '1. fazer diamond arrows\n2. fazer avalanches\n\nselecione (1 ou 2): ') == '1'
+
+        return make_arrow
 
     def cast_spell(self, make_arrow):
         if (make_arrow):

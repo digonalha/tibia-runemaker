@@ -1,12 +1,16 @@
 import datetime
 import psutil
-import os
 import subprocess
 import re
 import platform
 import numpy
 import pygetwindow as gw
+import os
+import json
+import uuid
 from dotenv import load_dotenv
+
+
 load_dotenv()
 
 PROCNAME = 'client.exe'
@@ -47,3 +51,16 @@ class Tools:
         if (not self.check_is_opened()):
             print('- opening client.')
             os.startfile(client_path + '/Tibia.exe')
+
+    def set_tibia_renderer(self):
+        filename = client_path + 'packages\Tibia\conf\clientoptions.json'
+        with open(filename, 'r') as f:
+            data = json.load(f)
+            options = data['options']
+            options['rendererIndex'] = 3   # remove remaining part
+            options['frameRateLimit'] = 10
+            #options['rendererChangeConfirmationRequired'] = 'true'
+
+        os.remove(filename)
+        with open(filename, 'w') as f:
+            json.dump(data, f, indent=4)

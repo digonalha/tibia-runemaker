@@ -7,10 +7,9 @@ import os
 class ImageFind():
     def search(self, image, precision=0.93):
         im = pyautogui.screenshot()
-
         img_path = '{}\images\{}'.format(os.path.abspath(os.getcwd()), image)
         # im.save(img_path)
-        
+
         img_rgb = numpy.array(im)
         img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)
         template = cv2.imread(img_path, 0)
