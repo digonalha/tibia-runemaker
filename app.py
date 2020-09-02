@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import time
+import os
 
 from utils.login import Login
 from utils.tools import Tools
@@ -17,6 +18,7 @@ hotkeys = Hotkeys()
 class App():
     def runemaker(self):
         try:
+            os.system('cls' if os.name == 'nt' else 'clear')
             print(
                 'starting runemaker.\nsource code: https://github.com/digonalha/tibia-runemaker\n')
             make_arrow = input(
