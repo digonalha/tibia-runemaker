@@ -18,9 +18,10 @@ hotkeys = Hotkeys()
 class App():
     def runemaker(self):
         try:
-            make_arrow = self.print_cabecalho()
-            # tools.set_tibia_renderer()
+            tools.set_tibia_renderer()
             tools.open_tibia_if_closed()
+
+            make_arrow = self.print_cabecalho()
 
             x = 0
             login.start_login()
