@@ -1,4 +1,3 @@
-tibia runemaker bot. made with python
+tibia rune&arrow maker bot. made with python
 
-1. to work, set your tibia graphic engine to 'software'
-2. 
+1. set your tibia %appdata% package path. ex: C:\Users\%user%\AppData\Local\Tibia\
