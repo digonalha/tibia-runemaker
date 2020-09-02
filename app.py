@@ -12,7 +12,6 @@ tools = Tools()
 gamewindow = GameWindow()
 login = Login()
 hotkeys = Hotkeys()
-make_arrow = False
 
 
 class App():
@@ -23,7 +22,6 @@ class App():
             make_arrow = input(
                 '1. Make arrows\n2. Make runes\n\nSelect: ') == '1'
 
-            print(make_arrow)
             x = 0
             tools.open_tibia_if_closed()
             login.start_login()
@@ -38,7 +36,7 @@ class App():
             while (True):
                 gamewindow.set_chat_off()
                 if (tools.is_time_between()):
-                    self.cast_spell()
+                    self.cast_spell(make_arrow)
 
                     if (x % 4 == 0):
                         login.start_login()
@@ -52,7 +50,7 @@ class App():
         except:
             raise
 
-    def cast_spell(self):
+    def cast_spell(self, make_arrow):
         if (make_arrow):
             gamewindow.check_diamond_arrow()
         else:

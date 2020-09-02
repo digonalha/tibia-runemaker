@@ -133,16 +133,18 @@ class GameWindow:
     def check_diamond_arrow(self):
         if (tools.is_tibia_focused()):
             without_mana = image_find.search('diamond_without_mana.png')
+            have_mana = image_find.search('diamond_with_mana.png')
 
             if (without_mana):
-                self.drink_mana_potion()
-                self.check_diamond_arrow()
-                return
-            else:
-                mouse.locate_and_click('diamond_with_mana.png')
+                while without_mana:
+                    keyboard.press_key(Key.f2)
+                    without_mana = image_find.search(
+                        'diamond_without_mana.png')
 
-    def drink_mana_potion(self):
-        mouse.locate_and_click('strong_mana_pot.png')
+                have_mana = image_find.search('diamond_with_mana.png')
+                mouse.click_on_position(have_mana, right=False)
+            elif (have_mana):
+                mouse.click_on_position(have_mana, right=False)
 
     def eat(self):
         has_food = image_find.search('food.png')
