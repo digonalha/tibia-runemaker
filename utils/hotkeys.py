@@ -11,9 +11,8 @@ tools = Tools()
 class Hotkeys():
     def rotate_char(self):
         with kbc.pressed(Key.ctrl):
-            keyboard.press_key(Key.up)
             keyboard.press_key(Key.right)
-            keyboard.press_key(Key.down)
+            keyboard.press_key(Key.left)
 
     def send_msg(self, msg=str):
         keyboard.type(msg)

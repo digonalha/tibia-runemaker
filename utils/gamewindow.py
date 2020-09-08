@@ -21,11 +21,12 @@ class GameWindow:
         '''abre a mochila principal (necessário para dar stow/jogar runas no chão)'''
         bp_position = image_find.search('main_bp.png', 0.8)
 
-        lst = list(bp_position)
-        lst[1] += 15
-        bp_position = tuple(lst)
+        if (bp_position):
+            lst = list(bp_position)
+            lst[1] += 15
+            bp_position = tuple(lst)
 
-        mouse.click_on_position(bp_position, right=True)
+            mouse.click_on_position(bp_position, right=True)
 
     def close_all_windows(self):
         '''fecha todas as janelas abertas no jogo (backpacks, npc trade, skills, etc...)'''
