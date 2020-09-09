@@ -21,7 +21,7 @@ class App():
             tools.set_tibia_renderer()
             tools.open_tibia_if_closed()
 
-            make_arrow = self.print_cabecalho()
+            cast_spell = self.print_cabecalho()
 
             x = 0
             global character_name
@@ -37,7 +37,7 @@ class App():
             while (True):
                 gamewindow.set_chat_off()
                 if (tools.is_time_between()):
-                    self.cast_spell(make_arrow)
+                    self.cast_spell(cast_spell)
 
                     if (x % 4 == 0):
                         login.start_login(character_name)
@@ -60,13 +60,18 @@ class App():
             '#. Nome do personagem: ')
 
         make_arrow = input(
-            '1. fazer diamond arrows\n2. fazer avalanches\n\nselecione (1 ou 2): ') == '1'
+            '1. fazer diamond arrows\n2. fazer spectral bolts\n3. fazer avalanches\n\nselecione (1, 2 ou 3): ')
 
         return make_arrow
 
-    def cast_spell(self, make_arrow):
-        if (make_arrow):
-            gamewindow.check_diamond_arrow()
+    def cast_spell(self, cast_spell):
+        opt = int(cast_spell)
+        if (opt == 1):
+            gamewindow.check_arrow_or_bolt(
+                'diamond_with_mana.png', 'diamond_without_mana.png')
+        elif (opt == 2):
+            gamewindow.check_arrow_or_bolt(
+                'spectral_with_mana.png', 'spectral_without_mana.png')
         else:
             gamewindow.check_avalanche()
 

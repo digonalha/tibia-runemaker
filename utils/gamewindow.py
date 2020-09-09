@@ -50,7 +50,7 @@ class GameWindow:
             mouse.click_on_position(position, right=False)
 
     def npc_chat_focused(self) -> 'Boolean':
-        return image_find.search(npc_chat_focado.png) != None
+        return image_find.search('npc_chat_focado.png') != None
 
     def talk_with_npc(self, msg=str):
         self.set_chat_off()
@@ -149,18 +149,17 @@ class GameWindow:
         if (tools.is_tibia_focused()):
             mouse.locate_and_click('htkavalanche.png')
 
-    def check_diamond_arrow(self):
+    def check_arrow_or_bolt(self, cast_com_mana, cast_sem_mana):
         if (tools.is_tibia_focused()):
-            without_mana = image_find.search('diamond_without_mana.png')
-            have_mana = image_find.search('diamond_with_mana.png')
+            without_mana = image_find.search(cast_sem_mana)
+            have_mana = image_find.search(cast_com_mana)
 
             if (without_mana):
                 while without_mana:
                     keyboard.press_key(Key.f2)
-                    without_mana = image_find.search(
-                        'diamond_without_mana.png')
+                    without_mana = image_find.search(cast_sem_mana)
 
-                have_mana = image_find.search('diamond_with_mana.png')
+                have_mana = image_find.search(cast_com_mana)
                 mouse.click_on_position(have_mana, right=False)
             elif (have_mana):
                 mouse.click_on_position(have_mana, right=False)
