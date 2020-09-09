@@ -18,7 +18,6 @@ keyboard = Keyboard()
 
 password = os.getenv('PASSWORD')
 auth_token = os.getenv('AUTH_TOKEN')
-character_name = os.getenv('CHARACTER_NAME')
 
 
 class Login:
@@ -39,12 +38,12 @@ class Login:
         except:
             print('Erro no método get_auth_token')
 
-    def start_login(self):
+    def start_login(self, character_name):
         # open_tibia_if_closed()
         tools.is_tibia_focused()
-        gamewindow.set_chat_off()
 
         if (gamewindow.check_offline()):
+            gamewindow.set_chat_off()
             print('- trying to login on character: {}'.format(character_name))
             keyboard.press_esc(3)
             time.sleep(3)

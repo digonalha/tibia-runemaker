@@ -24,7 +24,8 @@ class App():
             make_arrow = self.print_cabecalho()
 
             x = 0
-            login.start_login()
+            global character_name
+            login.start_login(character_name)
 
             gamewindow.set_chat_off()
             gamewindow.close_all_windows()
@@ -39,7 +40,7 @@ class App():
                     self.cast_spell(make_arrow)
 
                     if (x % 4 == 0):
-                        login.start_login()
+                        login.start_login(character_name)
                         self.check_supplies()
                     if (x > 10):
                         self.default_action()
@@ -54,6 +55,10 @@ class App():
         os.system('cls' if os.name == 'nt' else 'clear')
         print(
             'iniciando runemaker.\ncodigo-fonte: https://github.com/digonalha/tibia-runemaker\n')
+        global character_name
+        character_name = input(
+            '#. Nome do personagem: ')
+
         make_arrow = input(
             '1. fazer diamond arrows\n2. fazer avalanches\n\nselecione (1 ou 2): ') == '1'
 

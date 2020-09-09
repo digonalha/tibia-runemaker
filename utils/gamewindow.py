@@ -40,15 +40,27 @@ class GameWindow:
                 break
 
     def set_chat_off(self):
-        mouse.locate_and_click('chat_on.png', keep_trying=False, timeout=0)
+        position = image_find.search('chat_on.png', precision=0.99)
+        if (position):
+            mouse.click_on_position(position, right=False)
+
+    def set_chat_on(self):
+        position = image_find.search('chat_off.png', precision=0.99)
+        if (position):
+            mouse.click_on_position(position, right=False)
+
+    def npc_chat_focused(self) -> 'Boolean':
+        return image_find.search(npc_chat_focado.png) != None
 
     def talk_with_npc(self, msg=str):
         self.set_chat_off()
         hotkeys.open_npc_chat()
-        mouse.locate_and_click('chat_off.png', keep_trying=True, timeout=3)
-        keyboard.press_key(Key.enter)
-        hotkeys.send_msg('hi')
-        hotkeys.send_msg(msg)
+
+        if (self.npc_chat_focused()):
+            self.set_chat_on()
+            keyboard.press_key(Key.enter)
+            hotkeys.send_msg('hi')
+            hotkeys.send_msg(msg)
 
     def buy_food(self):
         self.talk_with_npc('supplies')
