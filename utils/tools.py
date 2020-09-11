@@ -40,7 +40,7 @@ class Tools:
             if (platform.system() == 'Windows'):
                 win = gw.getWindowsWithTitle('Tibia')
                 if (win):
-                    # win[0].activate()
+                    win[0].activate()
                     return True
                 else:
                     return False
