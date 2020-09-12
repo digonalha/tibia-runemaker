@@ -1,1 +1,1 @@
-python3 app.pyw
+python3 main.py

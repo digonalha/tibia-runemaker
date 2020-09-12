@@ -99,6 +99,9 @@ class MainWindow:
                                     command=self.save_path_click)
         self.btn_save_path.pack(side='left')
 
+    def save_path_click(self):
+        return
+        
     def create_check_boxes(self, master=None):
         self.chk_container = Frame(master)
         self.chk_container["padx"] = 20
