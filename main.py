@@ -1,18 +1,21 @@
 #!/usr/bin/env python3
 
+from utils.hotkeys import Hotkeys
+from utils.gamewindow import GameWindow
+from utils.tools import Tools
+from utils.login import Login
 import time
 import os
-
-from utils.login import Login
-from utils.tools import Tools
-from utils.gamewindow import GameWindow
-from utils.hotkeys import Hotkeys
+import atexit
 
 
 tools = Tools()
 gamewindow = GameWindow()
 login = Login()
 hotkeys = Hotkeys()
+
+atex = atexit
+atex.register(tools.exit_handler)
 
 
 class App():

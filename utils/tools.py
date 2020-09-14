@@ -59,7 +59,20 @@ class Tools:
             options = data['options']
             options['rendererIndex'] = 3   # remove remaining part
             options['frameRateLimit'] = 10
-            #options['rendererChangeConfirmationRequired'] = 'true'
+            # options['rendererChangeConfirmationRequired'] = 'true'
+
+        os.remove(filename)
+        with open(filename, 'w') as f:
+            json.dump(data, f, indent=4)
+
+    def exit_handler(self):
+        filename = client_path + 'packages\Tibia\conf\clientoptions.json'
+        with open(filename, 'r') as f:
+            data = json.load(f)
+            options = data['options']
+            options['rendererIndex'] = 0   # remove remaining part
+            options['frameRateLimit'] = 130
+            # options['rendererChangeConfirmationRequired'] = 'true'
 
         os.remove(filename)
         with open(filename, 'w') as f:
