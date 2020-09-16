@@ -66,6 +66,7 @@ class Tools:
             json.dump(data, f, indent=4)
 
     def exit_handler(self):
+        self.kill_tibia_process()
         filename = client_path + 'packages\Tibia\conf\clientoptions.json'
         with open(filename, 'r') as f:
             data = json.load(f)
@@ -77,3 +78,8 @@ class Tools:
         os.remove(filename)
         with open(filename, 'w') as f:
             json.dump(data, f, indent=4)
+
+    def kill_tibia_process(self):
+        for proc in psutil.process_iter():
+            if (proc.name() == PROCNAME):
+                proc.kill()
