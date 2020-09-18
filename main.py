@@ -6,6 +6,7 @@ from utils.tools import Tools
 from utils.login import Login
 import time
 import os
+import threading
 import atexit
 
 
@@ -19,28 +20,25 @@ atex.register(tools.exit_handler)
 
 
 class App():
-    def runemaker(self):
+    def main(self):
         try:
             x = 0
-            global character_name
-            global spell_to_use
+            global character_name, spell_to_use, exit_request
 
             tools.set_tibia_renderer()
             tools.open_tibia_if_closed()
 
             cast_spell = self.print_cabecalho()
 
-            login.start_login(character_name)
-
-            gamewindow.set_chat_off()
             gamewindow.close_all_windows()
             gamewindow.show_equips()
 
-            self.check_supplies()
-            self.default_action()
+            # self.check_supplies()
+            # self.default_action()
 
-            while (True):
+            while (not exit_request):
                 gamewindow.set_chat_off()
+                login.start_login(character_name)
                 if (tools.is_time_between()):
                     self.cast_spell(spell_to_use)
 
@@ -102,4 +100,4 @@ class App():
 app = App()
 
 if (__name__ == "__main__"):
-    app.runemaker()
+    app.main()
