@@ -21,13 +21,15 @@ atex.register(tools.exit_handler)
 class App():
     def runemaker(self):
         try:
+            x = 0
+            global character_name
+            global spell_to_use
+
             tools.set_tibia_renderer()
             tools.open_tibia_if_closed()
 
             cast_spell = self.print_cabecalho()
 
-            x = 0
-            global character_name
             login.start_login(character_name)
 
             gamewindow.set_chat_off()
@@ -40,7 +42,7 @@ class App():
             while (True):
                 gamewindow.set_chat_off()
                 if (tools.is_time_between()):
-                    self.cast_spell(cast_spell)
+                    self.cast_spell(spell_to_use)
 
                     if (x % 4 == 0):
                         login.start_login(character_name)
@@ -55,17 +57,20 @@ class App():
             raise
 
     def print_cabecalho(self):
+        global character_name, spell_to_use, use_ring, use_soft, buy_supply
         os.system('cls' if os.name == 'nt' else 'clear')
         print(
             'iniciando runemaker.\ncodigo-fonte: https://github.com/digonalha/tibia-runemaker\n')
-        global character_name
-        character_name = input(
-            '#. Nome do personagem: ')
 
-        make_arrow = input(
-            '1. fazer diamond arrows\n2. fazer spectral bolts\n3. fazer avalanches\n\nselecione (1, 2 ou 3): ')
-
-        return make_arrow
+        character_name = input('#. Nome do personagem: ')
+        use_ring = input(
+            '#. Usar life ring? y/n: ') == 'y'
+        use_soft = input(
+            '#. Usar soft boots? y/n: ') == 'y'
+        buy_supply = input(
+            '#. Auto refill (Necessário estar perto de um NPC)? y/n: ') == 'y'
+        spell_to_use = input(
+            '#. Selecione a spell: \n   1. diamond arrows\n   2. spectral bolts\n   3. avalanches\n\n:: ')
 
     def cast_spell(self, cast_spell):
         opt = int(cast_spell)
@@ -79,9 +84,14 @@ class App():
             gamewindow.check_avalanche()
 
     def check_supplies(self):
-        gamewindow.check_food_and_blank_runes()
-        gamewindow.check_softboots()
-        gamewindow.check_lifering()
+        global use_ring, use_soft, buy_supply
+
+        if (buy_supply):
+            gamewindow.check_food_and_blank_runes()
+        if (use_soft):
+            gamewindow.check_softboots()
+        if (use_ring):
+            gamewindow.check_lifering()
 
     def default_action(self):
         gamewindow.drop_runes()
