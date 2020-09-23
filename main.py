@@ -22,14 +22,16 @@ atex.register(tools.exit_handler)
 
 
 class App():
+    def
+
     def main(self):
         try:
             global character_name, spell_to_use, exit_request
 
             x = 0
             exit_request = False
-
-            config.create()
+            # config.list_config()
+            # config.create()
 
             tools.set_tibia_renderer()
             tools.open_tibia_if_closed()
