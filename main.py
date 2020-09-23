@@ -22,8 +22,6 @@ atex.register(tools.exit_handler)
 
 
 class App():
-    def
-
     def main(self):
         try:
             global character_name, spell_to_use, exit_request
