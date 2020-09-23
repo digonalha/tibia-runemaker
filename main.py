@@ -4,6 +4,7 @@ from utils.hotkeys import Hotkeys
 from utils.gamewindow import GameWindow
 from utils.tools import Tools
 from utils.login import Login
+from config.config import Config
 import time
 import os
 import threading
@@ -14,6 +15,7 @@ tools = Tools()
 gamewindow = GameWindow()
 login = Login()
 hotkeys = Hotkeys()
+config = Config()
 
 atex = atexit
 atex.register(tools.exit_handler)
@@ -26,6 +28,8 @@ class App():
 
             x = 0
             exit_request = False
+
+            config.create()
 
             tools.set_tibia_renderer()
             tools.open_tibia_if_closed()
