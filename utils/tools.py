@@ -4,7 +4,7 @@ import subprocess
 import re
 import platform
 import numpy
-import pygetwindow as gw
+import pygetwindow
 import os
 import json
 import uuid
@@ -38,7 +38,7 @@ class Tools:
     def is_tibia_focused(self):
         try:
             if (platform.system() == 'Windows'):
-                win = gw.getWindowsWithTitle('Tibia')
+                win = pygetwindow.getWindowsWithTitle('Tibia')
                 if (win):
                     win[0].activate()
                     return True
@@ -78,6 +78,8 @@ class Tools:
         os.remove(filename)
         with open(filename, 'w') as f:
             json.dump(data, f, indent=4)
+
+        self.open_tibia_if_closed()
 
     def kill_tibia_process(self):
         for proc in psutil.process_iter():

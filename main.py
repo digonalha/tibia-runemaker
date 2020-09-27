@@ -8,7 +8,6 @@ from config.config import Config
 import time
 import os
 import threading
-import atexit
 
 
 tools = Tools()
@@ -16,9 +15,6 @@ gamewindow = GameWindow()
 login = Login()
 hotkeys = Hotkeys()
 config = Config()
-
-atex = atexit
-atex.register(tools.exit_handler)
 
 
 class App():
@@ -57,11 +53,16 @@ class App():
 
                     x += 1
                     time.sleep(5)
-        except:
-            raise
+        except BaseException as e:
+            print('\nOcorreu um erro: ' + e.message)
+        finally:
+            restart_tibia = input(
+                '\nDeseja abrir o tibia com o render correto? y/n: ') == 'y'
+            if (restart_tibia):
+                tools.exit_handler()
 
     def print_cabecalho(self):
-        global character_name, spell_to_use, use_ring, use_soft, buy_supply
+        global character_name, spell_to_use, use_ring, use_soft, buy_supply, force_focus
         os.system('cls' if os.name == 'nt' else 'clear')
         print(
             'iniciando runemaker.\ncodigo-fonte: https://github.com/digonalha/tibia-runemaker\n')
@@ -73,6 +74,8 @@ class App():
             '#. Usar soft boots? y/n: ') == 'y'
         buy_supply = input(
             '#. Auto refill (Necessário estar perto de um NPC)? y/n: ') == 'y'
+        force_focus = input(
+            '#. Forçar foco na janela do tibia? y/n: ') == 'y'
         spell_to_use = input(
             '#. Selecione a spell: \n   1. diamond arrows\n   2. spectral bolts\n   3. avalanches\n\n:: ')
 
