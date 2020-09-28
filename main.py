@@ -31,23 +31,21 @@ class App():
             tools.open_tibia_if_closed()
 
             cast_spell = self.print_cabecalho()
-
+            login.start_login(character_name)
             gamewindow.close_all_windows()
             gamewindow.show_equips()
-
-            # self.check_supplies()
-            # self.default_action()
-
             while (not exit_request):
                 gamewindow.set_chat_off()
-                login.start_login(character_name)
+
                 if (tools.is_time_between()):
                     self.cast_spell(spell_to_use)
 
                     if (x % 4 == 0):
+                        tools.open_tibia_if_closed()
                         login.start_login(character_name)
                         self.check_supplies()
                     if (x > 10):
+                        tools.open_tibia_if_closed()
                         self.default_action()
                         x = 0
 

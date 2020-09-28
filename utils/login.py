@@ -39,7 +39,7 @@ class Login:
             print('Erro no método get_auth_token')
 
     def start_login(self, character_name):
-        # open_tibia_if_closed()
+        tools.open_tibia_if_closed()
         tools.is_tibia_focused()
 
         if (gamewindow.check_offline()):
