@@ -25,7 +25,6 @@ class App():
             x = 0
             exit_request = False
             # config.list_config()
-            # config.create()
 
             tools.set_tibia_renderer()
             tools.open_tibia_if_closed()
@@ -34,6 +33,7 @@ class App():
             login.start_login(character_name)
             gamewindow.close_all_windows()
             gamewindow.show_equips()
+
             while (not exit_request):
                 gamewindow.set_chat_off()
 

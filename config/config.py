@@ -12,7 +12,6 @@ class Config():
             return []
 
     def create(self, new_config):
-
         data['config'] = self.get()
         data['config'].append(new_config)
 
@@ -21,16 +20,14 @@ class Config():
 
     def list_config(self):
         try:
-            print('#. Configuraçoes:')
+            print('#. Configuraçoes:\n0. Criar nova')
             with open('config.txt') as json_file:
+                order = 0
                 data = json.load(json_file)
-                for p in data['people']:
-                    print('Name: ' + p['name'])
-                    print('Website: ' + p['website'])
-                    print('From: ' + p['from'])
-                    print('')
+                for p in data['config']:
+                    order += 1
+                    print(str(order) + '. Character: ' + p['name'])
         except:
-            return
+            print('Ocorreu um erro ao tentar carregar as configurações')
         finally:
-            print('0. Criar nova')
             input(':: ')
