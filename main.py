@@ -20,10 +20,10 @@ config = Config()
 class App():
     def main(self):
         try:
-            global character_name, spell_to_use, exit_request
-
             x = 0
             exit_request = False
+            global character_name, spell_to_use, exit_request
+
             # config.list_config()
 
             tools.set_tibia_renderer()
