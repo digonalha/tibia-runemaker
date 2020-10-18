@@ -20,7 +20,7 @@ character_name = os.getenv('CHARACTER_NAME')
 
 class Tools:
     def is_time_between(self):
-        """retorna verdadeiro se o horario for entre 06:10 AM e 5:55AM (evitando o server save de Venebra)"""
+        """retorna verdadeiro se o horario for entre 06:10 AM e 5:55AM (evitando o server save dos servers BR)"""
         now_time = datetime.datetime.now().time()
         start = datetime.time(6, 10)
         end = datetime.time(5, 55)
