@@ -21,9 +21,8 @@ class App():
     def main(self):
         try:
             x = 0
-            exit_request = False
             global character_name, spell_to_use, exit_request
-
+            exit_request = False
             # config.list_config()
 
             tools.set_tibia_renderer()
