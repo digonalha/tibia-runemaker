@@ -74,7 +74,7 @@ class App():
         force_focus = input(
             '#. Forçar foco na janela do tibia? y/n: ') == 'y'
         spell_to_use = input(
-            '#. Selecione a spell: \n   1. diamond arrows\n   2. spectral bolts\n   3. avalanches\n\n:: ')
+            '#. Selecione a spell: \n   1. diamond arrows\n   2. spectral bolts\n   3. rune\n\n:: ')
 
     def cast_spell(self, cast_spell):
         opt = int(cast_spell)
@@ -85,7 +85,7 @@ class App():
             gamewindow.check_arrow_or_bolt(
                 'spectral_with_mana.png', 'spectral_without_mana.png')
         else:
-            gamewindow.check_avalanche()
+            gamewindow.check_rune()
 
     def check_supplies(self):
         global use_ring, use_soft, buy_supply

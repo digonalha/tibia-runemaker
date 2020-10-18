@@ -145,9 +145,9 @@ class GameWindow:
 
         return True
 
-    def check_avalanche(self):
+    def check_rune(self):
         if (tools.is_tibia_focused()):
-            mouse.locate_and_click('htkavalanche.png')
+            mouse.locate_and_click('htkrune.png')
 
     def check_arrow_or_bolt(self, cast_com_mana, cast_sem_mana):
         if (tools.is_tibia_focused()):
