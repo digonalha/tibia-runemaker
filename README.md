@@ -1,4 +1,4 @@
-# Tibia Rune and Arrow Maker - Python 3.7.x
+# Tibia Rune and Arrow Maker - Python 3.7+
 Tibia bot for make rune and diamond arrows. Made with python <3
 
 _Disclaim:
@@ -25,6 +25,6 @@ _Now, if you dont know portuguese, "do your jumps" cuz im not in moody to transl
 ### Só respondo issues se for de bug. Não me venha pedindo ajuda com coisa boba, ok? Tu ta no github, o código fonte ta todo ai pra tu estudar (e ainda ta todo em python, qualquer criança entende). Ah, eu valorizo muito o esforço e aceito pull requests.
 
 
-Eu fiz esse bot pelo lulz mesmo, pra levantar uma grana em Venebra num ED runando avalanche 24/7 numa Rosebud B da vida KKKKKKKK (consegui com muito esforço e várias softs/life rings pegar ml 90). Depois de um tempo abandonado, melhorei um pouco ele pra ficar fazendo arrow no meu arrow maker. Como vão finalmente arrumar os paladins e eu desisti de jogar de mage não tem mais serventia para mim. Deixo aqui essa maravilha para quem quiser aproveitar. Só lembrando que:
+Eu fiz esse bot pelo lulz mesmo, pra levantar uma grana em Venebra num ED runando avalanche 24/7 numa Rosebud B dixavadim (consegui com muito esforço e várias softs/life rings pegar ml 90 e fazer muita grana pra charlovar nos outfit). Depois de um tempo abandonado, melhorei um pouco ele pra ficar fazendo arrow no meu arrow maker por causa dos cooldown. Como vão finalmente arrumar os paladins e eu desisti de jogar de mage não tem mais serventia para mim. Deixo aqui essa maravilha para quem quiser aproveitar. Só lembrando que:
 
-## EU NAO ME RESPONSABILIZO POR EVENTUAIS PERDAS. USA ISSO POR SUA CONTA E RISCO. COMO DIRIA OMAR LITTLE, "ALL IN THE GAME, YO"
+## EU NÃO ME RESPONSABILIZO POR EVENTUAIS PERDAS. USA ISSO POR SUA CONTA E RISCO. COMO DIRIA OMAR LITTLE, "ALL IN THE GAME, YO"
