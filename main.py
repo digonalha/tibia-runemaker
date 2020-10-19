@@ -59,7 +59,7 @@ class App():
                 tools.exit_handler()
 
     def print_cabecalho(self):
-        global character_name, spell_to_use, use_ring, use_soft, buy_supply, force_focus
+        global character_name, spell_to_use, use_ring, use_soft, buy_supply, force_focus, auto_rotate
         os.system('cls' if os.name == 'nt' else 'clear')
         print(
             'iniciando runemaker.\ncodigo-fonte: https://github.com/digonalha/tibia-runemaker\n')
@@ -70,7 +70,9 @@ class App():
         use_soft = input(
             '#. Usar soft boots? y/n: ') == 'y'
         buy_supply = input(
-            '#. Auto refill (Necessário estar perto de um NPC)? y/n: ') == 'y'
+            '#. Auto refill (Necessário estar perto de um NPC)? y/n: ') == 'y'            
+        auto_rotate = input(
+            '#. Auto rotate? y/n: ') == 'y'
         force_focus = input(
             '#. Forçar foco na janela do tibia? y/n: ') == 'y'
         spell_to_use = input(
@@ -98,8 +100,12 @@ class App():
             gamewindow.check_lifering()
 
     def default_action(self):
+        global auto_rotate
+
+        if (auto_rotate):
+            hotkeys.rotate_char()
+
         gamewindow.drop_runes()
-        hotkeys.rotate_char()
         gamewindow.eat()
 
 
