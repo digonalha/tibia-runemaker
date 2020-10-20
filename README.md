@@ -24,4 +24,4 @@ _Now, if you dont know portuguese, "do your jumps" cuz im not in moody to transl
 
 ### Só respondo issues se for de bug. Não me venha pedindo ajuda com coisa boba, ok? Tu ta no github, o código fonte ta todo ai pra tu estudar (e ainda ta todo em python, qualquer criança entende). Ah, eu valorizo muito o esforço e aceito pull requests.
 
-## SÓ LEMBRANDO QUE EU NÃO ME RESPONSABILIZO POR EVENTUAIS PERDAS. USA ISSO POR SUA CONTA E RISCO. COMO DIRIA OMAR LITTLE, "ALL IN THE GAME, YO"
+### SÓ LEMBRANDO QUE EU NÃO ME RESPONSABILIZO POR EVENTUAIS PERDAS. USE POR SUA CONTA E RISCO.
